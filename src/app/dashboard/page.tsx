@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Header from '../components/Header'
@@ -12,7 +13,7 @@ export default function Dashboard() {
   useEffect(() => {
     if (session) {
       fetchTopTracks()
-      fetchRecentlyPlayed()
+      // fetchRecentlyPlayed()
       fetchRecommendations()
     }
   }, [session])
@@ -23,11 +24,11 @@ export default function Dashboard() {
     setTopTracks(data.items)
   }
 
-  const fetchRecentlyPlayed = async () => {
-    const res = await fetch('/api/spotify/recently-played')
-    const data = await res.json()
-    setRecentlyPlayed(data.items.map(item => item.track))
-  }
+  // const fetchRecentlyPlayed = async () => {
+  //   const res = await fetch('/api/spotify/recently-played')
+  //   const data = await res.json()
+  //   setRecentlyPlayed(data.items.map(item => item.track))
+  // }
 
   const fetchRecommendations = async () => {
     const res = await fetch('/api/spotify/recommendations')
