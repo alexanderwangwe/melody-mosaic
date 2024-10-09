@@ -3,21 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f9fa;
+  --foreground: #212529;
+  --primary: #6200ea;
+  --secondary: #03dac6;
+  --accent: #ff4081;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #121212;
+    --foreground: #e0e0e0;
+    --primary: #bb86fc;
+    --secondary: #03dac6;
+    --accent: #cf6679;
   }
 }
 
 body {
-  
-  font-family: Arial, Helvetica, sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @layer utilities {
@@ -26,7 +30,7 @@ body {
   }
 }
 
-@keyframes spin-slow{
+@keyframes spin-slow {
   from {
     transform: rotate(0deg);
   }
@@ -37,4 +41,23 @@ body {
 
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-modern {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+  }
+  
+  .text-gradient-modern {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--primary), var(--accent));
+  }
 }
